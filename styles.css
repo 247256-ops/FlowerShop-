@@ -1,11 +1,11 @@
-/* =================================================
-   FONTS
-================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+/* =========================
+   GOOGLE FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap');
 
-/* =================================================
+/* =========================
    GLOBAL
-================================================= */
+========================= */
 * {
     margin: 0;
     padding: 0;
@@ -13,420 +13,409 @@
 }
 
 body {
-    background: #fdf4f7;
     font-family: "Poppins", sans-serif;
-    color: #5a3c45;
+    background: #fff0f5;
+    color: #4b2c34;
 }
 
-/* =================================================
-   NAVBAR
-================================================= */
+/* =========================
+   NAVBAR (PREMIUM DARK PINK)
+========================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 60px;
-    background: #ffdde9;
-    box-shadow: 0 4px 10px rgba(255, 119, 169, 0.2);
+    padding: 18px 70px;
+    background: linear-gradient(to right, #ffd6e6, #ffb3cc);
+    box-shadow: 0 6px 20px rgba(194, 24, 91, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #ff77a9;
-    box-shadow: 0 4px 12px rgba(255, 119, 169, 0.3);
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #c2185b;
+    font-family: "Playfair Display", serif;
 }
 
 .nav-links {
+    list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 35px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #5a3c45;
-    font-weight: 600;
+    color: #4b2c34;
+    font-weight: 500;
+    position: relative;
     transition: 0.3s;
 }
 
-.nav-links a:hover,
-.nav-links .active {
-    color: #ff4f8b;
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: #c2185b;
+    transition: 0.3s;
 }
 
-/* =================================================
-   HERO
-================================================= */
-.hero {
-    height: 90vh;
-    background: url("images/hero-flowers.jpg") no-repeat center/cover;
-    display: flex;
-    align-items: center;
-    padding-left: 70px;
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #c2185b;
+}
+
+.nav-links a.active {
+    color: #c2185b;
+    font-weight: 600;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* =========================
+   SLIDER (FIXED)
+========================= */
+.slider {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 1s;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.caption {
+    position: absolute;
+    bottom: 20%;
+    left: 8%;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 22px;
+}
+
+/* =========================
+   HERO TEXT
+========================= */
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    color: white;
 }
 
 .hero-text h1 {
+    font-size: 3rem;
     font-family: "Playfair Display", serif;
-    font-size: 4rem;
-    color: #ff4f8b;
 }
 
 .hero-text p {
-    margin: 10px 0 25px;
+    margin-top: 10px;
     font-size: 1.2rem;
 }
 
-.btn {
-    padding: 12px 30px;
-    background: #ff77a9;
-    color: white;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #ff4f8b;
-    transform: translateY(-3px);
-}
-
-/* =================================================
-   FLOWERS SECTION (3 PER ROW)
-================================================= */
-.flowers-section {
-    padding: 60px;
+/* =========================
+   SECTIONS
+========================= */
+.section {
+    padding: 70px;
     text-align: center;
 }
 
-.flowers-section h2 {
+.section h2 {
+    font-size: 2.4rem;
+    color: #c2185b;
     font-family: "Playfair Display", serif;
-    color: #ff4f8b;
-    font-size: 2.5rem;
 }
 
+/* =========================
+   CARDS
+========================= */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 PER ROW */
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .card {
-    background: #fff1f7;
-    padding: 18px;
+    background: white;
     border-radius: 18px;
-    box-shadow: 0 5px 15px rgba(255, 119, 169, 0.15);
+    padding: 15px;
+    box-shadow: 0 6px 18px rgba(194, 24, 91, 0.2);
     transition: 0.3s;
-    text-align: center;
 }
 
 .card img {
     width: 100%;
-    height: 240px;
+    height: 230px;
     object-fit: cover;
     border-radius: 12px;
 }
 
 .card h3 {
     margin-top: 10px;
-    color: #ff4f8b;
-    font-family: "Playfair Display", serif;
-}
-
-.card p {
-    font-size: 0.95rem;
-    margin-top: 5px;
+    color: #c2185b;
 }
 
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(255, 79, 139, 0.25);
+    transform: translateY(-8px);
 }
 
-/* =================================================
+/* =========================
+   BUTTON
+========================= */
+.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    background: #c2185b;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #880e4f;
+}
+
+/* =========================
+   FORM
+========================= */
+.form-box {
+    max-width: 420px;
+    margin: 80px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.form-box input,
+.form-box textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+/* =========================
    ABOUT PAGE
-================================================= */
+========================= */
 .about-page {
-    padding: 60px;
-    background: #ffe9ef;
-    text-align: center;
+    padding: 70px;
 }
 
-.about-page h1 {
-    font-family: "Playfair Display", serif;
-    color: #ff4f8b;
-    font-size: 2.8rem;
+.about-intro-box {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-top: 30px;
 }
 
-.about-intro {
-    margin: 15px auto;
-    max-width: 700px;
+.about-intro-box img {
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(194, 24, 91, 0.3);
 }
 
 .about-container {
     margin-top: 40px;
     display: grid;
-    gap: 25px;
+    gap: 20px;
 }
 
 .about-box {
-    background: #ffedf3;
-    padding: 25px;
+    background: #ffd6e6;
+    padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(255, 119, 169, 0.1);
+    transition: 0.3s;
 }
 
-/* =================================================
-   CONTACT
-================================================= */
+.about-box:hover {
+    transform: translateY(-5px);
+    background: #ffb3cc;
+}
+
+/* =========================
+   CONTACT PAGE
+========================= */
 .contact {
-    padding: 60px;
+    padding: 70px;
     text-align: center;
-    background: #ffe9ef;
+    background: #fff0f5; /* Ensures the background matches the rest of the theme */
 }
 
-form input,
-form textarea {
-    width: 70%;
+.contact h2 {
+    font-size: 2.4rem;
+    color: #c2185b;
+    margin-bottom: 20px;
+}
+
+.contact .contact-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Responsive handling */
+    margin-bottom: 30px;
+}
+
+.contact .contact-info div {
+    width: 30%; /* Adjust the width as necessary for layout */
+    min-width: 200px; /* Ensure it looks good on smaller screens */
+}
+
+.contact .contact-info p {
+    margin: 5px 0;
+    color: #4b2c34;
+}
+
+.contact .form-box {
+    max-width: 600px; /* Wider form for better usability */
+    margin: 0 auto; /* Center the form */
+}
+
+.contact .form-box input,
+.contact .form-box textarea {
+    width: 100%;
     padding: 12px;
     margin: 10px 0;
     border-radius: 10px;
-    border: 2px solid #ffc3d7;
+    border: 1px solid #ddd;
+    font-size: 1rem; /* Make input text bigger for accessibility */
 }
 
-form textarea {
-    height: 140px;
+.contact .form-box textarea {
+    min-height: 150px; /* Increase height for better usability */
 }
 
-button.btn {
-    cursor: pointer;
+.contact .btn {
+    display: inline-block;
+    padding: 12px 25px; /* Bigger button for comfort */
+    background: #c2185b;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s;
 }
 
-/* =================================================
-   FOOTER + SOCIAL LINKS
-================================================= */
-footer {
-    text-align: center;
-    padding: 25px;
-    background: #ffdde9;
+.contact .btn:hover {
+    background: #880e4f;
+}
+
+.contact .map {
     margin-top: 40px;
 }
 
-footer p {
-    font-weight: 500;
+.contact .map iframe {
+    width: 100%;
+    height: 300px; /* A comfortable height for map display */
+    border: none;
 }
 
-/* SOCIAL LINKS */
-.social-links {
-    margin-top: 12px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #ffb3cc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
 }
 
-.social-links a {
-    text-decoration: none;
-    color: #ff4f8b;
-    font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 25px;
-    background: #fff1f7;
-    box-shadow: 0 4px 10px rgba(255, 119, 169, 0.2);
-    transition: 0.3s ease;
-}
-
-.social-links a:hover {
-    background: #ff77a9;
-    color: white;
-    transform: translateY(-3px);
-}
-
-/* =================================================
+/* =========================
    RESPONSIVE
-================================================= */
-@media (max-width: 768px) {
+========================= */
+@media(max-width: 768px) {
     .navbar {
         flex-direction: column;
-        gap: 15px;
-    }
-
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
-
-    form input,
-    form textarea {
-        width: 90%;
+        gap: 12px;
+        padding: 15px;
     }
 
     .gallery {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 1fr;
     }
-}
-/* ===========================
-   ABOUT PAGE NEW DESIGN
-=========================== */
 
-.about-page {
-    padding: 70px;
-    background: #ffe9ef;
-    text-align: center;
-}
-
-.about-page h1 {
-    font-family: "Playfair Display", serif;
-    color: #ff4f8b;
-    font-size: 2.8rem;
-    margin-bottom: 40px;
-}
-
-/* MAIN BOX */
-.about-intro-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    background: #fff7fa;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 6px 18px rgba(255, 119, 169, 0.2);
-}
-
-/* AUTHOR IMAGE */
-.about-intro-box img {
-    width: 280px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #ff77a9;
-    box-shadow: 0 6px 15px rgba(255, 79, 139, 0.25);
-}
-
-/* TEXT */
-.about-text {
-    max-width: 500px;
-    text-align: left;
-}
-
-.about-text h2 {
-    font-family: "Playfair Display", serif;
-    color: #ff4f8b;
-    font-size: 1.8rem;
-}
-
-.about-text p {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #5a3c45;
-    line-height: 1.6;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
     .about-intro-box {
         flex-direction: column;
         text-align: center;
     }
 
-    .about-text {
-        text-align: center;
+    .section {
+        padding: 40px 20px;
     }
 
-    .about-intro-box img {
-        width: 200px;
-        height: 200px;
+    .contact .contact-info {
+        flex-direction: column; /* Stack the contact information vertically in small screens */
+        align-items: center; 
+    }
+
+    .contact .contact-info div {
+        width: 80%; /* Make it occupy more width while being stacked */
+        margin-bottom: 20px; /* Space between details */
+    }
+
+    .contact .form-box {
+        max-width: 90%; /* Allow form to take more space on small screens */
     }
 }
+/* CONTACT PAGE */
+.contact-section {
+    width: 80%;
+    margin: 40px auto;
+}
 
-/* ==============================
-   TOP STATUS BAR
-============================== */
-
-.top-bar {
+.social-box {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 60px;
-    background: #ffdde9;
-    font-size: 0.9rem;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
 }
 
-.shop-status {
-    font-weight: 600;
-    color: #2e7d32;
-}
-
-/* SOCIAL ICONS */
-.social-icons a {
+.social-btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
     text-decoration: none;
-    font-size: 1.2rem;
-    margin-left: 10px;
-}
-
-/* ==============================
-   MAIN NAVBAR
-============================== */
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background: #fff1f7;
-    box-shadow: 0 4px 10px rgba(255, 119, 169, 0.2);
-}
-
-/* LOGO */
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ff4f8b;
-}
-
-/* LINKS */
-.nav-links {
-    display: flex;
-    gap: 18px;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #5a3c45;
+    color: #ffffff;
     font-weight: 600;
     transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: #ff4f8b;
-}
+.insta { background: #E1306C; }
+.insta:hover { background: #b81d54; }
 
-/* SEARCH BOX */
-.search-box {
-    padding: 8px 12px;
-    border-radius: 20px;
-    border: 1px solid #ffc3d7;
-    outline: none;
-}
+.whatsapp { background: #25D366; }
+.whatsapp:hover { background: #1da851; }
 
-/* RIGHT SIDE ICONS */
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.icons span {
-    font-size: 1.4rem;
-    cursor: pointer;
-    margin-left: 8px;
-    transition: 0.3s;
-}
-
-.icons span:hover {
-    color: #ff4f8b;
-}
+.fb { background: #1877F2; }
+.fb:hover { background: #0f5ec2; }
